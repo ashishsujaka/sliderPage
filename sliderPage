@@ -1,0 +1,12 @@
+<apex:page showHeader="false"  >  
+<p><b>This page show the demo of custom quick access menu component</b></p>
+ 
+       <c:slider choices="
+       google.com : http://www.google.com,
+       yahoo.com : www.yahoo.com, 
+       linkedin.com : in.linkedin.com,
+       facebook.com : www.facebook.com" >
+      </c:slider>
+      
+      
+</apex:page>
