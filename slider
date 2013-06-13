@@ -1,0 +1,58 @@
+<apex:component controller="sliderController" access="global" >  
+<apex:attribute name="choices" description="This is a comma seperated key value pair map" type="string" assignTo="{!choiceMap}"/ >
+ <apex:stylesheet value="{!$Resource.sliderSource}"/>
+
+   
+ <script>  
+    function HideShowHandle(){  
+       var d = document.getElementById('devSlide1');  
+       if(d.className =='')  
+       {  
+           d.style.right='-2px';  
+           d.className ='expanded';  
+       }  
+       else if(d.className =='expanded'){  
+           d.style.right='-230px';  
+           d.className ='';  
+       }  
+    }  
+</script>  
+   
+  
+<div id="devSlide1" style="display: block; right: -230px;background: rgb(226, 13, 13);" class="">  
+    <div class="handle" onclick="HideShowHandle()">  
+        <img src="/s.gif" alt="Collapse Force.com Quick Access Menu" class="menuArrow1" onblur="this.className = 'menuArrow1';" onfocus="this.className = 'menuArrowOn1';" onmouseout="this.className = 'menuArrow1';" onmouseover="this.className = 'menuArrowOn1';" title="Collapse Force.com Quick Access Menu"/>  
+    </div>  
+    <div class="slideContainer">  
+        <div class="header">  
+            <a href="/setup/forcecomHomepage.apexp" TARGET="_BLANK" title="Setup" id="forceLogoLink">  
+                <img src="/s.gif" alt="Go to Setup" class="forceLogo" onblur="this.className = 'forceLogo';" onfocus="this.className = 'forceLogoOn';" onmouseout="this.className = 'forceLogo';" onmouseover="this.className = 'forceLogoOn';" title="Go to Setup"/>  
+            </a>  
+            <a href="" title="Help" style="float: right;margin-top: 5px;">  
+                <img src="/s.gif" alt="Help" class="helpIcon" title="Help"/>  
+            </a>  
+        </div>  
+        <div class="slideBody">  
+            <ul class="slideList">  
+               <apex:repeat value="{!MapOfChoice}" var="key">
+               <apex:repeat value="{!MapOfChoice[key]}" var="item">
+               <li class="">  
+                
+                    <a class="toolLink" href="{!item}" title="Click Here to nevigate" target="_blank">{!key}</a> 
+                 </li> 
+                
+                <hr class="divider"/> 
+               </apex:repeat>
+               </apex:repeat> 
+                 
+                
+            </ul>  
+              
+      </div>  
+        <div class="footer">  
+           <a href="#" style="color:white" target="_blank">Turn off Menu</a>  
+       </div>  
+   </div>  
+</div>  
+      
+</apex:component>
